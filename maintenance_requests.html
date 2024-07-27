@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance Requests</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<div class="flex">
+    <nav class="bg-blue-900 w-64 min-h-screen p-4 text-white">
+        <div class="text-2xl mb-6">University Residence</div>
+        <ul>
+            <li class="mb-4"><a href="index.html" class="text-white">Dashboard</a></li>
+            <li class="mb-4"><a href="room_management.html" class="text-white">Room Management</a></li>
+            <li class="mb-4"><a href="maintenance_requests.html" class="text-white">Maintenance Requests</a></li>
+            <li class="mb-4"><a href="notices.html" class="text-white">Notices</a></li>
+            <li class="mb-4"><a href="settings.html" class="text-white">Settings</a></li>
+            <li class="mt-auto text-white"><a href="profile.html">Profile</a></li>
+        </ul>
+    </nav>
+    <div class="flex-1">
+        <header class="bg-blue-800 p-4 text-white flex items-center justify-between">
+            <h1 class="text-2xl font-bold">Maintenance Requests</h1>
+            <div class="icons">
+                <i class="fas fa-bell"></i>
+                <i id="theme-switcher" class="fas fa-adjust"></i>
+            </div>
+        </header>
+
+            <main class="p-8">
+                <!-- Submit Request -->
+                <section class="dashboard-card mb-6">
+                    <h2 class="text-xl mb-4">Submit Maintenance Request</h2>
+                    <form id="maintenance-form" class="space-y-4">
+                        <div>
+                            <label for="room" class="block mb-2">Room Number</label>
+                            <input type="text" id="room" name="room" class="w-full px-3 py-2 border rounded" required>
+                        </div>
+                        <div>
+                            <label for="description" class="block mb-2">Description</label>
+                            <textarea id="description" name="description" class="w-full px-3 py-2 border rounded" required></textarea>
+                        </div>
+                        <div>
+                            <label for="priority" class="block mb-2">Priority Level</label>
+                            <select id="priority" name="priority" class="w-full px-3 py-2 border rounded" required>
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="timing" class="block mb-2">Preferred Timing</label>
+                            <input type="datetime-local" id="timing" name="timing" class="w-full px-3 py-2 border rounded" required>
+                        </div>
+                        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Submit</button>
+                    </form>
+                </section>
+
+                <!-- Maintenance Requests Breakdown -->
+                <section class="dashboard-card mb-6">
+                    <h2 class="text-xl mb-4">Maintenance Requests Breakdown</h2>
+                    <table class="w-full table-auto">
+                        <thead class="bg-gray-200 dark:bg-gray-700">
+                            <tr>
+                                <th class="py-2 px-4">Request ID</th>
+                                <th class="py-2 px-4">Room</th>
+                                <th class="py-2 px-4">Status</th>
+                                <th class="py-2 px-4">Issue</th>
+                                <th class="py-2 px-4">Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="request-table-body">
+                            <tr class="border-t">
+                                <td class="py-2 px-4">REQ001</td>
+                                <td class="py-2 px-4">101</td>
+                                <td class="py-2 px-4">Pending</td>
+                                <td class="py-2 px-4">Leaky faucet</td>
+                                <td class="py-2 px-4">2024-07-10</td>
+                            </tr>
+                            <tr class="border-t">
+                                <td class="py-2 px-4">REQ002</td>
+                                <td class="py-2 px-4">102</td>
+                                <td class="py-2 px-4">In Progress</td>
+                                <td class="py-2 px-4">Broken AC</td>
+                                <td class="py-2 px-4">2024-07-11</td>
+                            </tr>
+                            <tr class="border-t">
+                                <td class="py-2 px-4">REQ003</td>
+                                <td class="py-2 px-4">103</td>
+                                <td class="py-2 px-4">Completed</td>
+                                <td class="py-2 px-4">Clogged sink</td>
+                                <td class="py-2 px-4">2024-07-12</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- Request History -->
+                <section class="dashboard-card mb-6">
+                    <h2 class="text-xl mb-4">Request History</h2>
+                    <table class="w-full table-auto">
+                        <thead class="bg-gray-200 dark:bg-gray-700">
+                            <tr>
+                                <th class="py-2 px-4">Request ID</th>
+                                <th class="py-2 px-4">Room</th>
+                                <th class="py-2 px-4">Status</th>
+                                <th class="py-2 px-4">Issue</th>
+                                <th class="py-2 px-4">Date</th>
+                                <th class="py-2 px-4">Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-table-body">
+                            <!-- History entries will be inserted here dynamically -->
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- Assign Tasks and Update Status -->
+                <section class="dashboard-card">
+                    <h2 class="text-xl mb-4">Assign Tasks and Update Status</h2>
+                    <form id="update-status-form" class="space-y-4">
+                        <div>
+                            <label for="update-request-id" class="block mb-2">Request ID</label>
+                            <input type="text" id="update-request-id" name="update-request-id" class="w-full px-3 py-2 border rounded" required>
+                        </div>
+                        <div>
+                            <label for="update-status" class="block mb-2">Status</label>
+                            <select id="update-status" name="update-status" class="w-full px-3 py-2 border rounded" required>
+                                <option value="Pending">Pending</option>
+                                <option value="In Progress">In Progress</option>
+                                <option value="Completed">Completed</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="update-notes" class="block mb-2">Notes</label>
+                            <textarea id="update-notes" name="update-notes" class="w-full px-3 py-2 border rounded" required></textarea>
+                        </div>
+                        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Update</button>
+                    </form>
+                </section>
+            </main>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

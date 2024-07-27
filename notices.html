@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notices</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 font-montserrat">
+    <div class="flex">
+        <nav class="bg-blue-800 w-64 min-h-screen p-4">
+            <div class="text-white text-2xl mb-6">University Residence</div>
+            <ul>
+                <li class="mb-4"><a href="index.html" class="text-white">Dashboard</a></li>
+                <li class="mb-4"><a href="room_management.html" class="text-white">Room Management</a></li>
+                <li class="mb-4"><a href="maintenance_requests.html" class="text-white">Maintenance Requests</a></li>
+                <li class="mb-4"><a href="notices.html" class="text-white">Notices</a></li>
+                <li class="mb-4"><a href="settings.html" class="text-white">Settings</a></li>
+                <li class="mt-auto"><a href="profile.html" class="text-white">Profile</a></li>
+            </ul>
+        </nav>
+        <div class="flex-1">
+            <header class="bg-blue-800 p-4 text-white flex items-center justify-between">
+                <h1 class="text-2xl font-bold">Notices</h1>
+                <div class="icons">
+                    <i class="fas fa-bell"></i>
+                    <i id="theme-switcher" class="fas fa-adjust"></i>
+                </div>
+            </header>
+            <main class="p-8">
+                <section class="dashboard-card overflow-auto" style="max-height: 600px;">
+                    <div class="space-y-4">
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">
+                            <h3 class="text-lg font-bold">Fire Drill</h3>
+                            <p class="mt-2">There will be a fire drill on July 20th. Please participate and follow the safety protocols.</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Posted on: 2024-07-15</p>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">
+                            <h3 class="text-lg font-bold">Water Shutdown</h3>
+                            <p class="mt-2">There will be a water shutdown on July 18th for maintenance. Please store enough water in advance.</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Posted on: 2024-07-14</p>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">
+                            <h3 class="text-lg font-bold">Guest Policy Update</h3>
+                            <p class="mt-2">Guests are allowed to stay overnight with prior permission from the administration. Please adhere to the updated policy.</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Posted on: 2024-07-13</p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

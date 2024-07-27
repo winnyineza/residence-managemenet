@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Residence Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 font-sans">
+    <div class="flex">
+        <nav class="bg-blue-900 w-64 min-h-screen p-4 text-white">
+            <div class="text-2xl mb-6">University Residence</div>
+            <ul>
+                <li class="mb-4"><a href="index.html" class="text-white">Dashboard</a></li>
+                <li class="mb-4"><a href="room_management.html" class="text-white">Room Management</a></li>
+                <li class="mb-4"><a href="maintenance_requests.html" class="text-white">Maintenance Requests</a></li>
+                <li class="mb-4"><a href="notices.html" class="text-white">Notices</a></li>
+                <li class="mb-4"><a href="settings.html" class="text-white">Settings</a></li>
+                <li class="mt-auto text-white"><a href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+        <div class="flex-1">
+            <header class="bg-blue-800 p-4 text-white flex items-center justify-between">
+                <h1 class="text-2xl font-bold">Dashboard</h1>
+                <div class="icons">
+                    <i class="fas fa-bell"></i>
+                    <i id="theme-switcher" class="fas fa-adjust"></i>
+                </div>
+            </header>
+            <main class="p-8">
+                <section class="dashboard-card">
+                    <h2 class="text-xl font-bold mb-4">Overall Residence Statistics</h2>
+                    <div class="flex justify-between">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold">68%</div>
+                            <div>Occupancy Rate</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold">120</div>
+                            <div>Total Rooms</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold">350</div>
+                            <div>Total Students</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold">23</div>
+                            <div>Total Complaints</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold">8</div>
+                            <div>Residence Notices</div>
+                        </div>
+                    </div>
+                </section>
+                <section class="dashboard-card">
+                    <h2 class="text-xl font-bold mb-4">Room Management</h2>
+                    <table class="table-auto w-full">
+                        <thead class="bg-gray-200">
+                            <tr>
+                                <th class="py-2 px-4">Full Name</th>
+                                <th class="py-2 px-4">Room Number</th>
+                                <th class="py-2 px-4">Status</th>
+                                <th class="py-2 px-4">Amenities</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-t">
+                                <td class="py-2 px-4">Sabine Klein</td>
+                                <td class="py-2 px-4">101</td>
+                                <td class="py-2 px-4">Occupied</td>
+                                <td class="py-2 px-4">WiFi, AC</td>
+                            </tr>
+                            <tr class="border-t">
+                                <td class="py-2 px-4">Dante Podenzana</td>
+                                <td class="py-2 px-4">102</td>
+                                <td class="py-2 px-4">Occupied</td>
+                                <td class="py-2 px-4">WiFi, Heater</td>
+                            </tr>
+                            <tr class="border-t">
+                                <td class="py-2 px-4">Susan Chan</td>
+                                <td class="py-2 px-4">103</td>
+                                <td class="py-2 px-4">Vacant</td>
+                                <td class="py-2 px-4">WiFi, AC</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8">
+                    <div class="dashboard-card">
+                        <h2 class="text-xl font-bold">Occupancy Rates</h2>
+                        <div class="chart-container">
+                            <canvas id="occupancyChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="dashboard-card">
+                        <h2 class="text-xl font-bold">Complaint Trends</h2>
+                        <div class="chart-container">
+                            <canvas id="complaintChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="dashboard-card">
+                        <h2 class="text-xl font-bold">Maintenance Requests</h2>
+                        <div class="chart-container">
+                            <canvas id="maintenanceChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Theme switcher
+        const themeSwitcher = document.getElementById('theme-switcher');
+        themeSwitcher.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+        });
+
+        // Dummy data for charts
+        const occupancyData = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+            datasets: [{
+                label: 'Occupancy Rate',
+                data: [65, 59, 80, 81, 56, 55],
+                backgroundColor: 'rgba(0, 123, 255, 0.2)',
+                borderColor: 'rgba(0, 123, 255, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const complaintData = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+            datasets: [{
+                label: 'Complaints',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const maintenanceData = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+            datasets: [{
+                label: 'Maintenance Requests',
+                data: [5, 10, 15, 20, 25, 30],
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        // Chart options
+        const options = {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        };
+
+        // Create charts
+        const occupancyChart = new Chart(document.getElementById('occupancyChart'), {
+            type: 'line',
+            data: occupancyData,
+            options: options
+        });
+
+        const complaintChart = new Chart(document.getElementById('complaintChart'), {
+            type: 'bar',
+            data: complaintData,
+            options: options
+        });
+
+        const maintenanceChart = new Chart(document.getElementById('maintenanceChart'), {
+            type: 'line',
+            data: maintenanceData,
+            options: options
+        });
+    </script>
+</body>
+
+</html>
