@@ -84,3 +84,4 @@ This documentation provides setup instructions, technical choices, and usage ins
   - Occupancy Rates Chart: A line chart displaying occupancy rates over the first half of the year.
   - Complaint Trends Chart: A bar chart showing the number of complaints over the first half of the year.
   - Maintenance Requests Chart: A pie chart displaying the types of maintenance requests received over the first half
+
