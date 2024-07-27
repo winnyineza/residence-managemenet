@@ -1,60 +1,71 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+/* Variables */
+$primary-color: #007bff;
+$secondary-color: #343a40;
+$light-color: #f8f9fa;
+$dark-color: #495057;
+$hover-color: #ffc107;
+$shadow-color: rgba(0,0,0,0.1);
+
 /* General Styles */
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #f8f9fa;
-    color: #343a40;
+    background-color: $light-color;
+    color: $secondary-color;
     transition: background-color 0.3s, color 0.3s;
 }
 
 .dark {
-    background-color: #343a40;
-    color: #f8f9fa;
+    background-color: $secondary-color;
+    color: $light-color;
 }
 
 /* Navigation Styles */
 nav {
     width: 250px;
-    background-color: #007bff;
+    background-color: $primary-color;
     color: white;
     min-height: 100vh;
     padding: 1rem;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-}
+    box-shadow: 2px 0 5px $shadow-color;
 
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
+    ul {
+        list-style-type: none;
+        padding: 0;
 
-nav ul li {
-    margin-bottom: 1rem;
-}
+        li {
+            margin-bottom: 1rem;
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.3s;
-}
+            a {
+                color: white;
+                text-decoration: none;
+                font-size: 1rem;
+                transition: color 0.3s;
 
-nav ul li a:hover {
-    color: #ffc107;
+                &:hover {
+                    color: $hover-color;
+                }
+            }
+        }
+    }
 }
 
 /* Header Styles */
 header {
-    background-color: #007bff;
+    background-color: $primary-color;
     padding: 1rem;
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
 
-header .icons i {
-    margin-left: 1rem;
-    cursor: pointer;
+    .icons {
+        i {
+            margin-left: 1rem;
+            cursor: pointer;
+        }
+    }
 }
 
 /* Main Content Styles */
@@ -67,14 +78,14 @@ main {
     background: white;
     padding: 1rem;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px $shadow-color;
     margin-bottom: 2rem;
     transition: background 0.3s, color 0.3s;
-}
 
-.dark .dashboard-card {
-    background: #495057;
-    color: white;
+    .dark & {
+        background: $dark-color;
+        color: white;
+    }
 }
 
 /* Chart Styles */
@@ -88,45 +99,59 @@ main {
     max-width: 900px;
     margin: 0 auto;
     padding: 0 10px;
-}
 
-.dark #calendar {
-    background-color: #495057;
-    color: white;
+    .dark & {
+        background-color: $dark-color;
+        color: white;
+    }
 }
 
 /* Table Styles */
 table {
     width: 100%;
     border-collapse: collapse;
-}
 
-thead th {
-    background-color: #e9ecef;
-    color: #495057;
-    text-align: left;
-    padding: 0.75rem;
-    font-weight: bold;
-}
+    thead {
+        th {
+            background-color: #e9ecef;
+            color: $dark-color;
+            text-align: left;
+            padding: 0.75rem;
+            font-weight: bold;
+        }
+    }
 
-tbody td {
-    padding: 0.75rem;
-    border-top: 1px solid #dee2e6;
-}
+    tbody {
+        td {
+            padding: 0.75rem;
+            border-top: 1px solid #dee2e6;
+        }
 
-tbody tr:hover {
-    background-color: #f1f1f1;
-}
+        tr {
+            &:hover {
+                background-color: #f1f1f1;
+            }
+        }
+    }
 
-.dark thead th {
-    background-color: #495057;
-    color: #f8f9fa;
-}
+    .dark {
+        thead {
+            th {
+                background-color: $dark-color;
+                color: $light-color;
+            }
+        }
 
-.dark tbody td {
-    border-top: 1px solid #495057;
-}
+        tbody {
+            td {
+                border-top: 1px solid $dark-color;
+            }
 
-.dark tbody tr:hover {
-    background-color: #6c757d;
+            tr {
+                &:hover {
+                    background-color: #6c757d;
+                }
+            }
+        }
+    }
 }
