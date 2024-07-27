@@ -8,79 +8,59 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- Font Awesome -->
 </head>
 
-<body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 font-montserrat">
+<body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 font-sans">
     <div class="flex">
-        <nav class="bg-blue-800 w-64 min-h-screen p-4">
-            <div class="text-white text-2xl mb-6">University Residence</div>
+        <nav class="bg-blue-900 w-64 min-h-screen p-4 text-white">
+            <div class="text-2xl mb-6">University Residence</div>
             <ul>
                 <li class="mb-4"><a href="index.html" class="text-white">Dashboard</a></li>
                 <li class="mb-4"><a href="room_management.html" class="text-white">Room Management</a></li>
                 <li class="mb-4"><a href="maintenance_requests.html" class="text-white">Maintenance Requests</a></li>
                 <li class="mb-4"><a href="notices.html" class="text-white">Notices</a></li>
                 <li class="mb-4"><a href="settings.html" class="text-white">Settings</a></li>
-                <li class="mt-auto"><a href="profile.html" class="text-white">Profile</a></li>
+                <li class="mt-auto text-white"><a href="profile.html">Profile</a></li>
             </ul>
         </nav>
         <div class="flex-1">
             <header class="bg-blue-800 p-4 text-white flex items-center justify-between">
                 <h1 class="text-2xl font-bold">Settings</h1>
-                <div class="icons flex space-x-4">
+                <div class="icons">
                     <i class="fas fa-bell"></i>
                     <i id="theme-switcher" class="fas fa-adjust"></i>
                 </div>
             </header>
             <main class="p-8">
                 <section class="dashboard-card">
-                    <h2 class="text-xl">Theme</h2>
-                    <div class="mt-4">
-                        <button id="light-mode" class="bg-gray-200 text-gray-900 px-4 py-2 rounded mr-4">Light Mode</button>
-                        <button id="dark-mode" class="bg-gray-900 text-white px-4 py-2 rounded">Dark Mode</button>
-                    </div>
-                </section>
-                <section class="dashboard-card mt-8">
-                    <h2 class="text-xl">Profile Settings</h2>
-                    <div class="mt-4">
-                        <a href="edit_profile.html" class="bg-blue-800 text-white px-4 py-2 rounded inline-block">Edit Profile</a>
-                    </div>
-                </section>
-                <section class="dashboard-card mt-8">
-                    <h2 class="text-xl">User Management</h2>
-                    <div class="mt-4">
-                        <a href="user_management.html" class="bg-blue-800 text-white px-4 py-2 rounded inline-block">Manage Users</a>
-                    </div>
-                </section>
-                <section class="dashboard-card mt-8">
-                    <h2 class="text-xl">System Configuration</h2>
-                    <div class="mt-4">
-                        <a href="system_configuration.html" class="bg-blue-800 text-white px-4 py-2 rounded inline-block">Adjust Settings</a>
-                    </div>
-                </section>
-                <section class="dashboard-card mt-8">
-                    <h2 class="text-xl">Integration Options</h2>
-                    <div class="mt-4">
-                        <a href="integration_options.html" class="bg-blue-800 text-white px-4 py-2 rounded inline-block">Manage Integrations</a>
-                    </div>
-                </section>
-                <section class="dashboard-card mt-8">
-                    <h2 class="text-xl">Customization</h2>
-                    <div class="mt-4">
-                        <a href="customization.html" class="bg-blue-800 text-white px-4 py-2 rounded inline-block">Customize Appearance</a>
-                    </div>
-                </section>
-                <section class="dashboard-card mt-8">
-                    <h2 class="text-xl">Backup and Restore</h2>
-                    <div class="mt-4">
-                        <a href="backup_data.html" class="bg-blue-800 text-white px-4 py-2 rounded inline-block">Backup Data</a>
-                        <a href="restore_data.html" class="bg-blue-800 text-white px-4 py-2 rounded inline-block mt-4">Restore Data</a>
-                    </div>
+                    <h2 class="text-xl font-bold mb-4">User Settings</h2>
+                    <form>
+                        <div class="mb-4">
+                            <label for="username" class="block text-gray-700 dark:text-gray-200">Username</label>
+                            <input type="text" id="username" class="mt-1 block w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md p-2" />
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 dark:text-gray-200">Email</label>
+                            <input type="email" id="email" class="mt-1 block w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md p-2" />
+                        </div>
+                        <div class="mb-4">
+                            <label for="password" class="block text-gray-700 dark:text-gray-200">Password</label>
+                            <input type="password" id="password" class="mt-1 block w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md p-2" />
+                        </div>
+                        <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded">Save Changes</button>
+                    </form>
                 </section>
             </main>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script>
+        // Theme switcher
+        const themeSwitcher = document.getElementById('theme-switcher');
+        themeSwitcher.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+        });
+    </script>
 </body>
 
 </html>
