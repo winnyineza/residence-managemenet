@@ -5,21 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Room Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 font-montserrat">
+<body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 font-sans">
     <div class="flex">
-        <nav class="bg-blue-800 w-64 min-h-screen p-4">
-            <div class="text-white text-2xl mb-6">University Residence</div>
+        <nav class="bg-blue-900 w-64 min-h-screen p-4 text-white">
+            <div class="text-2xl mb-6">University Residence</div>
             <ul>
                 <li class="mb-4"><a href="index.html" class="text-white">Dashboard</a></li>
                 <li class="mb-4"><a href="room_management.html" class="text-white">Room Management</a></li>
                 <li class="mb-4"><a href="maintenance_requests.html" class="text-white">Maintenance Requests</a></li>
                 <li class="mb-4"><a href="notices.html" class="text-white">Notices</a></li>
                 <li class="mb-4"><a href="settings.html" class="text-white">Settings</a></li>
-                <li class="mt-auto"><a href="profile.html" class="text-white">Profile</a></li>
+                <li class="mt-auto text-white"><a href="profile.html">Profile</a></li>
             </ul>
         </nav>
         <div class="flex-1">
@@ -31,39 +32,35 @@
                 </div>
             </header>
             <main class="p-8">
-                <section class="dashboard-card overflow-auto" style="max-height: 600px;">
-                    <h2 class="text-xl">Rooms</h2>
-                    <table class="w-full mt-4">
-                        <thead class="bg-gray-200 dark:bg-gray-700">
+                <section class="dashboard-card">
+                    <h2 class="text-xl font-bold mb-4">Manage Rooms</h2>
+                    <table class="table-auto w-full">
+                        <thead class="bg-gray-200">
                             <tr>
+                                <th class="py-2 px-4">Full Name</th>
                                 <th class="py-2 px-4">Room Number</th>
-                                <th class="py-2 px-4">Type</th>
-                                <th class="py-2 px-4">Occupants</th>
                                 <th class="py-2 px-4">Status</th>
-                                <th class="py-2 px-4">Last Cleaned</th>
+                                <th class="py-2 px-4">Amenities</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr class="border-t">
+                                <td class="py-2 px-4">Aristote Gahima</td>
                                 <td class="py-2 px-4">101</td>
-                                <td class="py-2 px-4">Single</td>
-                                <td class="py-2 px-4">John Doe</td>
                                 <td class="py-2 px-4">Occupied</td>
-                                <td class="py-2 px-4">2024-07-10</td>
+                                <td class="py-2 px-4">WiFi, AC</td>
                             </tr>
                             <tr class="border-t">
+                                <td class="py-2 px-4">Ayotunde Adebukola Adeleke</td>
                                 <td class="py-2 px-4">102</td>
-                                <td class="py-2 px-4">Double</td>
-                                <td class="py-2 px-4">Jane Smith, Mark Johnson</td>
                                 <td class="py-2 px-4">Occupied</td>
-                                <td class="py-2 px-4">2024-07-09</td>
+                                <td class="py-2 px-4">WiFi, Heater</td>
                             </tr>
                             <tr class="border-t">
+                                <td class="py-2 px-4">Juliet Awino Mukamani</td>
                                 <td class="py-2 px-4">103</td>
-                                <td class="py-2 px-4">Single</td>
-                                <td class="py-2 px-4">Emily Davis</td>
-                                <td class="py-2 px-4">Occupied</td>
-                                <td class="py-2 px-4">2024-07-11</td>
+                                <td class="py-2 px-4">Vacant</td>
+                                <td class="py-2 px-4">WiFi, AC</td>
                             </tr>
                         </tbody>
                     </table>
@@ -71,7 +68,14 @@
             </main>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script>
+        // Theme switcher
+        const themeSwitcher = document.getElementById('theme-switcher');
+        themeSwitcher.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+        });
+    </script>
 </body>
 
 </html>
