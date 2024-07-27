@@ -71,3 +71,30 @@ document.addEventListener('DOMContentLoaded', () => {
         updateStatusForm.reset();
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const themeSwitcher = document.getElementById('theme-switcher');
+    const editProfileButton = document.getElementById('edit-profile-button');
+    const accountSettingsButton = document.getElementById('account-settings-button');
+    const helpSupportButton = document.getElementById('help-support-button');
+
+    themeSwitcher.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+    });
+
+    editProfileButton.addEventListener('click', () => {
+        alert('Edit Profile button clicked!');
+        // Code to handle profile editing logic here
+    });
+
+    accountSettingsButton.addEventListener('click', () => {
+        alert('Manage Account Settings button clicked!');
+        // Code to handle account settings logic here
+    });
+
+    helpSupportButton.addEventListener('click', () => {
+        alert('Get Help button clicked!');
+        // Code to handle help and support logic here
+    });
+});
+
