@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- Font Awesome -->
 </head>
 
 <body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 font-montserrat">
@@ -26,12 +27,19 @@
         <div class="flex-1">
             <header class="bg-blue-800 p-4 text-white flex items-center justify-between">
                 <h1 class="text-2xl font-bold">Settings</h1>
-                <div class="icons">
+                <div class="icons flex space-x-4">
                     <i class="fas fa-bell"></i>
                     <i id="theme-switcher" class="fas fa-adjust"></i>
                 </div>
             </header>
             <main class="p-8">
+                <section class="dashboard-card">
+                    <h2 class="text-xl">Theme</h2>
+                    <div class="mt-4">
+                        <button id="light-mode" class="bg-gray-200 text-gray-900 px-4 py-2 rounded mr-4">Light Mode</button>
+                        <button id="dark-mode" class="bg-gray-900 text-white px-4 py-2 rounded">Dark Mode</button>
+                    </div>
+                </section>
                 <section class="dashboard-card mt-8">
                     <h2 class="text-xl">Profile Settings</h2>
                     <div class="mt-4">
@@ -72,7 +80,6 @@
             </main>
         </div>
     </div>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="script.js"></script>
 </body>
 
